@@ -30,7 +30,7 @@ module vector_leading_1_detector(
     assign pos_out_tmp[4] = (!(data_in[31:16])) ? 1'b1 : 1'b0;
     wire [15:0] data_1 = pos_out_tmp[4] ? data_in[15:0] : data_in[31:16];
     
-    assign pos_out_tmp[3] =  (!(data_1[15: 8])) ? 1'b1 : 1'b0;
+    assign pos_out_tmp[3] = (!(data_1[15: 8])) ? 1'b1 : 1'b0;
     wire [7:0] data_2 = pos_out_tmp[3] ? data_1[7:0] : data_1[15:8];
     
     assign pos_out_tmp[2] = (!(data_2[7: 4])) ? 1'b1 : 1'b0;

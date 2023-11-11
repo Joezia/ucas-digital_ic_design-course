@@ -1,0 +1,7 @@
+set_property SRC_FILE_INFO {cfile:/home/zza/Documents/ucas-digital_ic_design-course/proj_2_2/proj_2_2.srcs/constrs_1/new/seq_detector.xdc rfile:../../../proj_2_2.srcs/constrs_1/new/seq_detector.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN AD12 [get_ports sys_clk_p]
+set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN AD11 [get_ports sys_clk_n]
+set_property src_info {type:XDC file:1 line:5 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN AG5 [get_ports rst]
