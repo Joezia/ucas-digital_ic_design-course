@@ -1,0 +1,243 @@
+$date
+	Sun Dec  3 19:31:37 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module add_tc_16_16_tb $end
+$var wire 17 ! sum [16:0] $end
+$var wire 17 " bench [16:0] $end
+$var reg 16 # a [15:0] $end
+$var reg 16 $ b [15:0] $end
+$scope module dut $end
+$var wire 1 % C0 $end
+$var wire 16 & a [15:0] $end
+$var wire 16 ' b [15:0] $end
+$var wire 17 ( sum [16:0] $end
+$var wire 4 ) cout [3:0] $end
+$var wire 4 * P_g [3:0] $end
+$var wire 4 + G_g [3:0] $end
+$scope module add4_0 $end
+$var wire 4 , G [3:0] $end
+$var wire 1 - G_g $end
+$var wire 4 . P [3:0] $end
+$var wire 4 / a [3:0] $end
+$var wire 4 0 b [3:0] $end
+$var wire 1 % cin $end
+$var wire 4 1 s [3:0] $end
+$var wire 1 2 cout $end
+$var wire 1 3 P_g $end
+$var wire 5 4 C [4:0] $end
+$upscope $end
+$scope module add4_1 $end
+$var wire 4 5 G [3:0] $end
+$var wire 1 6 G_g $end
+$var wire 4 7 P [3:0] $end
+$var wire 4 8 a [3:0] $end
+$var wire 4 9 b [3:0] $end
+$var wire 1 : cin $end
+$var wire 4 ; s [3:0] $end
+$var wire 1 < cout $end
+$var wire 1 = P_g $end
+$var wire 5 > C [4:0] $end
+$upscope $end
+$scope module add4_2 $end
+$var wire 4 ? G [3:0] $end
+$var wire 1 @ G_g $end
+$var wire 4 A P [3:0] $end
+$var wire 4 B a [3:0] $end
+$var wire 4 C b [3:0] $end
+$var wire 1 D cin $end
+$var wire 4 E s [3:0] $end
+$var wire 1 F cout $end
+$var wire 1 G P_g $end
+$var wire 5 H C [4:0] $end
+$upscope $end
+$scope module add4_3 $end
+$var wire 4 I G [3:0] $end
+$var wire 1 J G_g $end
+$var wire 4 K P [3:0] $end
+$var wire 4 L a [3:0] $end
+$var wire 4 M b [3:0] $end
+$var wire 1 N cin $end
+$var wire 4 O s [3:0] $end
+$var wire 1 P cout $end
+$var wire 1 Q P_g $end
+$var wire 5 R C [4:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1111 R
+0Q
+0P
+b1001 O
+1N
+b101 M
+b11 L
+b110 K
+0J
+b1 I
+b11000 H
+0G
+1F
+b11 E
+0D
+b1110 C
+b101 B
+b1011 A
+1@
+b100 ?
+b0 >
+0=
+0<
+b1010 ;
+0:
+b1000 9
+b10 8
+b1010 7
+06
+b0 5
+b0 4
+03
+02
+b101 1
+b1 0
+b100 /
+b101 .
+0-
+b0 ,
+b100 +
+b0 *
+b100 )
+b1001001110100101 (
+b101111010000001 '
+b11010100100100 &
+0%
+b101111010000001 $
+b11010100100100 #
+b1001001110100101 "
+b1001001110100101 !
+$end
+#1
+0N
+b1000 )
+0@
+b1000 +
+1J
+0F
+1P
+b11010 R
+b1100 1
+b110 4
+b110 ;
+b1100 E
+b1100 H
+b10010110001101100 !
+b10010110001101100 (
+b10 O
+b1010 .
+b1 ,
+b110 7
+b0 A
+b110 ?
+b1000 K
+b101 I
+b11 0
+b110 9
+b110 C
+b1001 /
+b0 8
+b110 B
+b1101 L
+b101011001100011 $
+b101011001100011 '
+b10010110001101100 "
+b1101011000001001 #
+b1101011000001001 &
+#2
+b1 >
+1:
+1N
+b1101 )
+1P
+1-
+b1101 +
+1@
+12
+1F
+b1001 ;
+b1010 1
+b11010 4
+b100 E
+b10110 H
+b10001010010011010 !
+b10001010010011010 (
+b1 O
+b11111 R
+b1000 7
+b0 .
+b1101 ,
+b10 A
+b1001 ?
+b1110 K
+b1 I
+b1101 0
+b1000 9
+b1001 C
+b1001 M
+b1101 /
+b1011 B
+b111 L
+b1001100110001101 $
+b1001100110001101 '
+b10001010010011010 "
+b111101100001101 #
+b111101100001101 &
+#3
+0P
+0:
+0N
+b0 )
+0-
+0@
+02
+b0 >
+0F
+b0 +
+0J
+b111 1
+b0 4
+b111 ;
+b110 E
+b0 H
+b1101011001110111 !
+b1101011001110111 (
+b1101 O
+b0 R
+b111 .
+b0 ,
+b111 7
+b110 A
+b0 ?
+b1101 K
+b0 I
+b10 0
+b1 9
+b10 C
+b101 M
+b101 /
+b110 8
+b100 B
+b1000 L
+b101001000010010 $
+b101001000010010 '
+b1101011001110111 "
+b1000010001100101 #
+b1000010001100101 &
+#4

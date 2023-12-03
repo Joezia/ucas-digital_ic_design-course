@@ -1,0 +1,4 @@
+WORK > DEFAULT
+DEFAULT : vcs_lib/work
+xil_defaultlib:vcs_lib/xil_defaultlib
+OTHERS=/home/ICer/RTL_PRJ/xilinx_simlib/synopsys_sim.setup

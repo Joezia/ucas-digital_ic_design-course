@@ -1,0 +1,1 @@
+make -f script/Makefile clean
