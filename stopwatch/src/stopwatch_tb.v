@@ -10,7 +10,7 @@ reg			start_stop = 0;
 reg			clear	= 0;
 reg			rst_n	= 0;
 reg			clk		= 0;
-always #5	clk		= ~clk;
+always #1	clk		= ~clk;
 
 wire	[3:0]	hr_h;
 wire	[3:0]	hr_l;
@@ -35,7 +35,7 @@ initial begin
 	#100
 	#3		start_stop	<= 1'b1;
 	#15		start_stop	<= 0;
-	#100000
+	#1000000
 	$finish;
 end
 

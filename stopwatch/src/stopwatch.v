@@ -43,8 +43,8 @@ module stopwatch(
 	wire sec_h_rst	= (sec_l_rst) & (sec_h == 4'd5);
 	wire min_l_rst  = (sec_h_rst) & (min_l == 4'd9);
 	wire min_h_rst  = (min_l_rst) & (min_h == 4'd5);
-	wire hr_l_rst	= (min_h_rst) & (hr_l == 4'd9);
-	wire hr_h_rst	= (hr_l_rst)  & (hr_h == 4'd5);
+	wire hr_l_rst	= (min_h_rst) & ((hr_l == 4'd9) | ((hr_l == 4'd3) & (hr_h == 4'd2)));
+	wire hr_h_rst	= (hr_l_rst)  & (hr_h == 4'd2);
 
 	always@(posedge clk)begin
 		if((!rst_n) || clean_trig)begin	
