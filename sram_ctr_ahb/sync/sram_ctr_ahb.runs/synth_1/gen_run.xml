@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1704353459" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/sram_ctr_ahb.dcp">
+  <File Type="VDS-TIMINGSUMMARY" Name="sram_ctr_ahb_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="sram_ctr_ahb.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="sram_ctr_ahb_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="sram_ctr_ahb_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="sram_ctr_ahb_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="sram_ctr_ahb.vds"/>
+  <File Type="REPORTS-TCL" Name="sram_ctr_ahb_reports.tcl"/>
+  <File Type="VDS-TIMING-PB" Name="sram_ctr_ahb_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="sram_ctr_ahb.tcl"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/src/sram_ctr_ahb.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../src/sram_ctr_ahb.v"/>
+        <Attr Name="ImportTime" Val="1704289610"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="sram_ctr_ahb"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/sram_ctr_ahb.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/sram_ctr_ahb.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>
