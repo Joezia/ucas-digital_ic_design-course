@@ -19,7 +19,7 @@ wire [31:0] pro_re_re;
 wire [31:0] pro_im_im;
 wire [31:0] pro_re_im;
 wire [31:0] pro_im_re;
-/*
+
 mul_tc_16_16 re_re(
 	.a			(x2_r_i),
 	.b			(w_r),
@@ -40,12 +40,12 @@ mul_tc_16_16 im_re(
 	.b			(w_r),
 	.product	(pro_im_re)
 );
-*/
 
-assign pro_re_re = $signed(x2_r_i) * $signed(w_r);
-assign pro_im_im = $signed(x2_i_i) * $signed(w_i);
-assign pro_re_im = $signed(x2_r_i) * $signed(w_i);
-assign pro_im_re = $signed(x2_i_i) * $signed(w_r);
+
+//assign pro_re_re = $signed(x2_r_i) * $signed(w_r);
+//assign pro_im_im = $signed(x2_i_i) * $signed(w_i);
+//assign pro_re_im = $signed(x2_r_i) * $signed(w_i);
+//assign pro_im_re = $signed(x2_i_i) * $signed(w_r);
 
 wire [31:0] pro_re = pro_re_re - pro_im_im;
 wire [31:0] pro_im = pro_re_im + pro_im_re;

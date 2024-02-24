@@ -1,0 +1,1437 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date              : Fri Feb 23 21:42:55 2024
+| Host              : zza-virtual-machine running 64-bit Ubuntu 22.04.1 LTS
+| Command           : report_timing -from [get_pins -hierarchical -regexp .*] -to [get_pins -hierarchical -regexp .*] -delay_type max -max_paths 10 -sort_by group -input_pins -routable_nets -name timing_1 -file /home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sync/timing_report.txt
+| Design            : fft_multimode
+| Device            : xck26-sfvc784
+| Speed File        : -2LV  PRODUCTION 1.30 05-15-2022
+| Temperature Grade : C
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -2.101ns  (required time - arrival time)
+  Source:                 stage_reg[1]_rep__0/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            x_im_sort_reg_reg[5629]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.965ns  (logic 2.378ns (34.142%)  route 4.587ns (65.858%))
+  Logic Levels:           24  (CARRY8=5 LUT2=4 LUT3=3 LUT4=5 LUT5=2 LUT6=4 MUXF7=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.202ns = ( 8.202 - 5.000 ) 
+    Source Clock Delay      (SCD):    3.910ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     1.026     1.026 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     1.026    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     1.026 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     1.282    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.044     1.326 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.584     3.910    clk_IBUF_BUFG
+                         FDRE                                         r  stage_reg[1]_rep__0/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.114     4.024 r  stage_reg[1]_rep__0/Q
+                         net (fo=305, unplaced)       0.218     4.242    fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/x_re_sort_reg[5447]_i_14
+                                                                      r  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.152     4.394 f  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/O
+                         net (fo=1003, unplaced)      0.349     4.743    fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/x_re_sort_reg[2567]_i_13_0
+                                                                      f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_13__13/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     4.801 f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_13__13/O
+                         net (fo=127, unplaced)       0.302     5.103    fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/stage_reg[1]_rep__0_0
+                                                                      f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_12__14/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     5.161 r  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_12__14/O
+                         net (fo=119, unplaced)       0.300     5.461    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___144_i_8
+                                                                      r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_8__9/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.058     5.519 r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_8__9/O
+                         net (fo=141, unplaced)       0.320     5.839    fft_512/genblk6[159].w_re_rom/i___180_i_5__152_0
+                                                                      r  fft_512/genblk6[159].w_re_rom/i___70_i_5/S
+                         MUXF7 (Prop_MUXF7_S_O)       0.105     5.944 r  fft_512/genblk6[159].w_re_rom/i___70_i_5/O
+                         net (fo=1, unplaced)         0.209     6.153    fft_512/genblk6[159].w_re_rom/i___70_i_5_n_0
+                                                                      r  fft_512/genblk6[159].w_re_rom/i___70_i_1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058     6.211 r  fft_512/genblk6[159].w_re_rom/i___70_i_1/O
+                         net (fo=80, unplaced)        0.233     6.444    fft_512/genblk6[159].dft_2/w_re[159]_1603[5]
+                                                                      r  fft_512/genblk6[159].dft_2/i___70/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.137     6.581 r  fft_512/genblk6[159].dft_2/i___70/O
+                         net (fo=6, unplaced)         0.233     6.814    fft_512/genblk6[159].w_re_rom/i___180_i_19__86_1
+                                                                      r  fft_512/genblk6[159].w_re_rom/i___180_i_22__86/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.058     6.872 r  fft_512/genblk6[159].w_re_rom/i___180_i_22__86/O
+                         net (fo=1, unplaced)         0.211     7.083    fft_512/genblk6[159].w_re_rom/i___180_i_22__86_n_0
+                                                                      r  fft_512/genblk6[159].w_re_rom/i___180_i_19__86/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.058     7.141 r  fft_512/genblk6[159].w_re_rom/i___180_i_19__86/O
+                         net (fo=3, unplaced)         0.217     7.358    fft_512/genblk6[159].w_re_rom/genblk6[159].dft_2/im_re/u_wallace_tree_adder/s_01[14]
+                                                                      r  fft_512/genblk6[159].w_re_rom/product_carry__0_i_39__630/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     7.416 r  fft_512/genblk6[159].w_re_rom/product_carry__0_i_39__630/O
+                         net (fo=1, unplaced)         0.211     7.627    fft_512/genblk6[159].w_re_rom/product_carry__0_i_39__630_n_0
+                                                                      r  fft_512/genblk6[159].w_re_rom/product_carry__0_i_15__630/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058     7.685 r  fft_512/genblk6[159].w_re_rom/product_carry__0_i_15__630/O
+                         net (fo=2, unplaced)         0.211     7.896    fft_512/genblk6[159].dft_2/product_carry__2_11[5]
+                                                                      r  fft_512/genblk6[159].dft_2/product_carry__0_i_1__2/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.058     7.954 r  fft_512/genblk6[159].dft_2/product_carry__0_i_1__2/O
+                         net (fo=2, unplaced)         0.211     8.165    fft_512/genblk6[159].dft_2/u_wallace_tree_adder/s_30_8[15]
+                                                                      r  fft_512/genblk6[159].dft_2/product_carry__0_i_8__2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.058     8.223 r  fft_512/genblk6[159].dft_2/product_carry__0_i_8__2/O
+                         net (fo=1, unplaced)         0.023     8.246    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___29_i_14__5[7]
+                                                                      r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/product_carry__0/S[7]
+                         CARRY8 (Prop_CARRY8_S[7]_CO[7])
+                                                      0.180     8.426 r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/product_carry__0/CO[7]
+                         net (fo=1, unplaced)         0.006     8.432    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/product_carry__0_n_0
+                                                                      r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/product_carry__1/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     8.538 r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/product_carry__1/O[1]
+                         net (fo=1, unplaced)         0.209     8.747    fft_512/genblk6[159].dft_2/re_im/u_wallace_tree_adder/pro_im_re[17]
+                                                                      r  fft_512/genblk6[159].dft_2/re_im/u_wallace_tree_adder/i___31_i_12__1/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     8.805 r  fft_512/genblk6[159].dft_2/re_im/u_wallace_tree_adder/i___31_i_12__1/O
+                         net (fo=1, unplaced)         0.021     8.826    fft_512/genblk6[159].dft_2/re_im/u_wallace_tree_adder/i___31_i_12__1_n_0
+                                                                      r  fft_512/genblk6[159].dft_2/re_im/u_wallace_tree_adder/i___31_i_2__87/S[1]
+                         CARRY8 (Prop_CARRY8_S[1]_CO[7])
+                                                      0.269     9.095 r  fft_512/genblk6[159].dft_2/re_im/u_wallace_tree_adder/i___31_i_2__87/CO[7]
+                         net (fo=1, unplaced)         0.006     9.101    fft_512/genblk6[159].dft_2/re_im/u_wallace_tree_adder/i___31_i_2__87_n_0
+                                                                      r  fft_512/genblk6[159].dft_2/re_im/u_wallace_tree_adder/i___39_i_2__87/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     9.207 r  fft_512/genblk6[159].dft_2/re_im/u_wallace_tree_adder/i___39_i_2__87/O[1]
+                         net (fo=2, unplaced)         0.209     9.416    fft_512/genblk6[159].dft_2/p_0_in_289[11]
+                                                                      r  fft_512/genblk6[159].dft_2/i___40/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.057     9.473 r  fft_512/genblk6[159].dft_2/i___40/O
+                         net (fo=1, unplaced)         0.021     9.494    fft_512/genblk6[159].dft_2/i___40_n_0
+                                                                      r  fft_512/genblk6[159].dft_2/x_im_sort_reg_reg[6655]_i_3/S[3]
+                         CARRY8 (Prop_CARRY8_S[3]_O[5])
+                                                      0.258     9.752 r  fft_512/genblk6[159].dft_2/x_im_sort_reg_reg[6655]_i_3/O[5]
+                         net (fo=4, unplaced)         0.167     9.919    x_im_sort_o[319]_917[13]
+                                                                      r  x_im_sort_reg[5629]_i_4/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.082    10.001 r  x_im_sort_reg[5629]_i_4/O
+                         net (fo=1, unplaced)         0.211    10.212    x_im_sort_reg[5629]_i_4_n_0
+                                                                      r  x_im_sort_reg[5629]_i_3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.058    10.270 r  x_im_sort_reg[5629]_i_3/O
+                         net (fo=1, unplaced)         0.211    10.481    x_im_sort_reg[5629]_i_3_n_0
+                                                                      r  x_im_sort_reg[5629]_i_2/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058    10.539 r  x_im_sort_reg[5629]_i_2/O
+                         net (fo=2, unplaced)         0.211    10.750    x_im_unpack[351][13]
+                                                                      r  x_im_sort_reg[5629]_i_1/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.058    10.808 r  x_im_sort_reg[5629]_i_1/O
+                         net (fo=1, unplaced)         0.067    10.875    x_im_sort_reg[5629]
+                         FDRE                                         r  x_im_sort_reg_reg[5629]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.518     5.518 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.518    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.518 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.206     5.724    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.039     5.763 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.439     8.202    clk_IBUF_BUFG
+                         FDRE                                         r  x_im_sort_reg_reg[5629]/C
+                         clock pessimism              0.562     8.765    
+                         clock uncertainty           -0.035     8.729    
+                         FDRE (Setup_FDRE_C_D)        0.044     8.773    x_im_sort_reg_reg[5629]
+  -------------------------------------------------------------------
+                         required time                          8.773    
+                         arrival time                         -10.875    
+  -------------------------------------------------------------------
+                         slack                                 -2.101    
+
+Slack (VIOLATED) :        -2.101ns  (required time - arrival time)
+  Source:                 stage_reg[1]_rep__0/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            x_re_sort_reg_reg[5629]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.965ns  (logic 2.378ns (34.142%)  route 4.587ns (65.858%))
+  Logic Levels:           24  (CARRY8=5 LUT2=3 LUT3=3 LUT4=5 LUT5=2 LUT6=5 MUXF7=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.202ns = ( 8.202 - 5.000 ) 
+    Source Clock Delay      (SCD):    3.910ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     1.026     1.026 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     1.026    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     1.026 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     1.282    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.044     1.326 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.584     3.910    clk_IBUF_BUFG
+                         FDRE                                         r  stage_reg[1]_rep__0/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.114     4.024 r  stage_reg[1]_rep__0/Q
+                         net (fo=305, unplaced)       0.218     4.242    fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/x_re_sort_reg[5447]_i_14
+                                                                      r  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.152     4.394 f  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/O
+                         net (fo=1003, unplaced)      0.349     4.743    fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/x_re_sort_reg[2567]_i_13_0
+                                                                      f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_13__13/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     4.801 f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_13__13/O
+                         net (fo=127, unplaced)       0.302     5.103    fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/stage_reg[1]_rep__0_0
+                                                                      f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_12__14/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     5.161 r  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_12__14/O
+                         net (fo=119, unplaced)       0.300     5.461    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___144_i_8
+                                                                      r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_8__9/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.058     5.519 r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_8__9/O
+                         net (fo=141, unplaced)       0.320     5.839    fft_512/genblk6[159].w_im_rom/i___144_i_6_0
+                                                                      r  fft_512/genblk6[159].w_im_rom/i___79_i_5/S
+                         MUXF7 (Prop_MUXF7_S_O)       0.105     5.944 r  fft_512/genblk6[159].w_im_rom/i___79_i_5/O
+                         net (fo=1, unplaced)         0.209     6.153    fft_512/genblk6[159].w_im_rom/i___79_i_5_n_0
+                                                                      r  fft_512/genblk6[159].w_im_rom/i___79_i_1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058     6.211 r  fft_512/genblk6[159].w_im_rom/i___79_i_1/O
+                         net (fo=80, unplaced)        0.233     6.444    fft_512/genblk6[159].dft_2/w_im[159]_1602[5]
+                                                                      r  fft_512/genblk6[159].dft_2/i___79/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.137     6.581 r  fft_512/genblk6[159].dft_2/i___79/O
+                         net (fo=6, unplaced)         0.233     6.814    fft_512/genblk6[159].w_im_rom/i___164_i_19__152_1
+                                                                      r  fft_512/genblk6[159].w_im_rom/i___148_i_23__97/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.058     6.872 r  fft_512/genblk6[159].w_im_rom/i___148_i_23__97/O
+                         net (fo=1, unplaced)         0.211     7.083    fft_512/genblk6[159].w_im_rom/i___148_i_23__97_n_0
+                                                                      r  fft_512/genblk6[159].w_im_rom/i___148_i_19__97/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.058     7.141 r  fft_512/genblk6[159].w_im_rom/i___148_i_19__97/O
+                         net (fo=3, unplaced)         0.217     7.358    fft_512/genblk6[159].w_im_rom/genblk6[159].dft_2/im_im/u_wallace_tree_adder/s_01[14]
+                                                                      r  fft_512/genblk6[159].w_im_rom/product_carry__0_i_40__628/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     7.416 r  fft_512/genblk6[159].w_im_rom/product_carry__0_i_40__628/O
+                         net (fo=1, unplaced)         0.211     7.627    fft_512/genblk6[159].w_im_rom/product_carry__0_i_40__628_n_0
+                                                                      r  fft_512/genblk6[159].w_im_rom/product_carry__0_i_15__628/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058     7.685 r  fft_512/genblk6[159].w_im_rom/product_carry__0_i_15__628/O
+                         net (fo=2, unplaced)         0.211     7.896    fft_512/genblk6[159].dft_2/c_20[5]
+                                                                      r  fft_512/genblk6[159].dft_2/product_carry__0_i_1__0/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.058     7.954 r  fft_512/genblk6[159].dft_2/product_carry__0_i_1__0/O
+                         net (fo=2, unplaced)         0.211     8.165    fft_512/genblk6[159].dft_2/u_wallace_tree_adder/s_30_0[15]
+                                                                      r  fft_512/genblk6[159].dft_2/product_carry__0_i_8__0/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.058     8.223 r  fft_512/genblk6[159].dft_2/product_carry__0_i_8__0/O
+                         net (fo=1, unplaced)         0.023     8.246    fft_512/genblk6[159].dft_2/im_im/u_wallace_tree_adder/i___7[7]
+                                                                      r  fft_512/genblk6[159].dft_2/im_im/u_wallace_tree_adder/product_carry__0/S[7]
+                         CARRY8 (Prop_CARRY8_S[7]_CO[7])
+                                                      0.180     8.426 r  fft_512/genblk6[159].dft_2/im_im/u_wallace_tree_adder/product_carry__0/CO[7]
+                         net (fo=1, unplaced)         0.006     8.432    fft_512/genblk6[159].dft_2/im_im/u_wallace_tree_adder/product_carry__0_n_0
+                                                                      r  fft_512/genblk6[159].dft_2/im_im/u_wallace_tree_adder/product_carry__1/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     8.538 r  fft_512/genblk6[159].dft_2/im_im/u_wallace_tree_adder/product_carry__1/O[1]
+                         net (fo=1, unplaced)         0.209     8.747    fft_512/genblk6[159].dft_2/pro_im_im[17]
+                                                                      r  fft_512/genblk6[159].dft_2/i___16/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     8.805 r  fft_512/genblk6[159].dft_2/i___16/O
+                         net (fo=1, unplaced)         0.021     8.826    fft_512/genblk6[159].dft_2/re_re/u_wallace_tree_adder/x_re_sort_reg[4983]_i_10[1]
+                                                                      r  fft_512/genblk6[159].dft_2/re_re/u_wallace_tree_adder/i___225_i_4__8/S[1]
+                         CARRY8 (Prop_CARRY8_S[1]_CO[7])
+                                                      0.269     9.095 r  fft_512/genblk6[159].dft_2/re_re/u_wallace_tree_adder/i___225_i_4__8/CO[7]
+                         net (fo=1, unplaced)         0.006     9.101    fft_512/genblk6[159].dft_2/re_re/u_wallace_tree_adder/i___225_i_4__8_n_0
+                                                                      r  fft_512/genblk6[159].dft_2/re_re/u_wallace_tree_adder/i___219_i_5__63/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     9.207 r  fft_512/genblk6[159].dft_2/re_re/u_wallace_tree_adder/i___219_i_5__63/O[1]
+                         net (fo=2, unplaced)         0.209     9.416    fft_512/genblk6[159].dft_2/p_0_in2_in_537[11]
+                                                                      r  fft_512/genblk6[159].dft_2/i___223/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.057     9.473 r  fft_512/genblk6[159].dft_2/i___223/O
+                         net (fo=1, unplaced)         0.021     9.494    fft_512/genblk6[159].dft_2/i___223_n_0
+                                                                      r  fft_512/genblk6[159].dft_2/x_re_sort_reg_reg[6655]_i_3/S[3]
+                         CARRY8 (Prop_CARRY8_S[3]_O[5])
+                                                      0.258     9.752 r  fft_512/genblk6[159].dft_2/x_re_sort_reg_reg[6655]_i_3/O[5]
+                         net (fo=4, unplaced)         0.167     9.919    x_re_sort_o[319]_918[13]
+                                                                      r  x_re_sort_reg[5629]_i_4/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.082    10.001 r  x_re_sort_reg[5629]_i_4/O
+                         net (fo=1, unplaced)         0.211    10.212    x_re_sort_reg[5629]_i_4_n_0
+                                                                      r  x_re_sort_reg[5629]_i_3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.058    10.270 r  x_re_sort_reg[5629]_i_3/O
+                         net (fo=1, unplaced)         0.211    10.481    x_re_sort_reg[5629]_i_3_n_0
+                                                                      r  x_re_sort_reg[5629]_i_2/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058    10.539 r  x_re_sort_reg[5629]_i_2/O
+                         net (fo=2, unplaced)         0.211    10.750    x_re_unpack[351][13]
+                                                                      r  x_re_sort_reg[5629]_i_1/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.058    10.808 r  x_re_sort_reg[5629]_i_1/O
+                         net (fo=1, unplaced)         0.067    10.875    x_re_sort_reg[5629]
+                         FDRE                                         r  x_re_sort_reg_reg[5629]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.518     5.518 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.518    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.518 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.206     5.724    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.039     5.763 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.439     8.202    clk_IBUF_BUFG
+                         FDRE                                         r  x_re_sort_reg_reg[5629]/C
+                         clock pessimism              0.562     8.765    
+                         clock uncertainty           -0.035     8.729    
+                         FDRE (Setup_FDRE_C_D)        0.044     8.773    x_re_sort_reg_reg[5629]
+  -------------------------------------------------------------------
+                         required time                          8.773    
+                         arrival time                         -10.875    
+  -------------------------------------------------------------------
+                         slack                                 -2.101    
+
+Slack (VIOLATED) :        -2.095ns  (required time - arrival time)
+  Source:                 stage_reg[1]_rep__0/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            x_im_sort_reg_reg[2812]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.959ns  (logic 2.304ns (33.108%)  route 4.655ns (66.892%))
+  Logic Levels:           24  (CARRY8=5 LUT2=4 LUT3=4 LUT4=4 LUT5=2 LUT6=4 MUXF7=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.202ns = ( 8.202 - 5.000 ) 
+    Source Clock Delay      (SCD):    3.910ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     1.026     1.026 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     1.026    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     1.026 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     1.282    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.044     1.326 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.584     3.910    clk_IBUF_BUFG
+                         FDRE                                         r  stage_reg[1]_rep__0/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.114     4.024 r  stage_reg[1]_rep__0/Q
+                         net (fo=305, unplaced)       0.218     4.242    fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/x_re_sort_reg[5447]_i_14
+                                                                      r  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.152     4.394 f  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/O
+                         net (fo=1003, unplaced)      0.349     4.743    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___78_i_11__3_0
+                                                                      f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     4.801 f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/O
+                         net (fo=127, unplaced)       0.302     5.103    fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___78_i_5
+                                                                      f  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     5.161 r  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/O
+                         net (fo=119, unplaced)       0.300     5.461    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___117_i_6__3
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.058     5.519 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/O
+                         net (fo=144, unplaced)       0.321     5.840    fft_512/genblk6[95].w_re_rom/i___199_i_5__72_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_6/S
+                         MUXF7 (Prop_MUXF7_S_O)       0.105     5.945 r  fft_512/genblk6[95].w_re_rom/i___86_i_6/O
+                         net (fo=1, unplaced)         0.209     6.154    fft_512/genblk6[95].w_re_rom/i___86_i_6_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058     6.212 r  fft_512/genblk6[95].w_re_rom/i___86_i_1/O
+                         net (fo=80, unplaced)        0.233     6.445    fft_512/genblk6[95].dft_2/w_re[95]_1598[5]
+                                                                      r  fft_512/genblk6[95].dft_2/i___86/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.137     6.582 r  fft_512/genblk6[95].dft_2/i___86/O
+                         net (fo=6, unplaced)         0.233     6.815    fft_512/genblk6[95].w_re_rom/i___196_i_19__29_1
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.058     6.873 r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/O
+                         net (fo=1, unplaced)         0.211     7.084    fft_512/genblk6[95].w_re_rom/i___196_i_22__29_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.058     7.142 r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/O
+                         net (fo=3, unplaced)         0.217     7.359    fft_512/genblk6[95].w_re_rom/genblk6[95].dft_2/im_re/u_wallace_tree_adder/s_01[14]
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     7.417 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/O
+                         net (fo=1, unplaced)         0.211     7.628    fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058     7.686 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/O
+                         net (fo=2, unplaced)         0.211     7.897    fft_512/genblk6[95].dft_2/product_carry__2_11[5]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.058     7.955 r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/O
+                         net (fo=2, unplaced)         0.211     8.166    fft_512/genblk6[95].dft_2/u_wallace_tree_adder/s_30_8[15]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.058     8.224 r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/O
+                         net (fo=1, unplaced)         0.023     8.247    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___45_i_15__28[7]
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/S[7]
+                         CARRY8 (Prop_CARRY8_S[7]_CO[7])
+                                                      0.180     8.427 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/CO[7]
+                         net (fo=1, unplaced)         0.006     8.433    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     8.539 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/O[1]
+                         net (fo=1, unplaced)         0.209     8.748    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/pro_im_re[17]
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     8.806 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/O
+                         net (fo=1, unplaced)         0.021     8.827    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/S[1]
+                         CARRY8 (Prop_CARRY8_S[1]_CO[7])
+                                                      0.269     9.096 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/CO[7]
+                         net (fo=1, unplaced)         0.006     9.102    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___55_i_2__29/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     9.208 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___55_i_2__29/O[1]
+                         net (fo=2, unplaced)         0.209     9.417    genblk6[95].dft_2/p_0_in[11]
+                                                                      r  x_im_sort_reg[1535]_i_18/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.057     9.474 r  x_im_sort_reg[1535]_i_18/O
+                         net (fo=1, unplaced)         0.021     9.495    x_im_sort_reg[1535]_i_18_n_0
+                                                                      r  x_im_sort_reg_reg[1535]_i_6/S[3]
+                         CARRY8 (Prop_CARRY8_S[3]_O[4])
+                                                      0.208     9.703 r  x_im_sort_reg_reg[1535]_i_6/O[4]
+                         net (fo=7, unplaced)         0.234     9.937    x_im_sort_o[190]_191[12]
+                                                                      r  x_im_sort_reg[2812]_i_4/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     9.995 r  x_im_sort_reg[2812]_i_4/O
+                         net (fo=1, unplaced)         0.211    10.206    x_im_sort_reg[2812]_i_4_n_0
+                                                                      r  x_im_sort_reg[2812]_i_3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.058    10.264 r  x_im_sort_reg[2812]_i_3/O
+                         net (fo=1, unplaced)         0.211    10.475    x_im_sort_reg[2812]_i_3_n_0
+                                                                      r  x_im_sort_reg[2812]_i_2/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058    10.533 r  x_im_sort_reg[2812]_i_2/O
+                         net (fo=2, unplaced)         0.211    10.744    x_im_unpack[175][12]
+                                                                      r  x_im_sort_reg[2812]_i_1/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.058    10.802 r  x_im_sort_reg[2812]_i_1/O
+                         net (fo=1, unplaced)         0.067    10.869    x_im_sort_reg[2812]
+                         FDRE                                         r  x_im_sort_reg_reg[2812]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.518     5.518 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.518    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.518 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.206     5.724    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.039     5.763 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.439     8.202    clk_IBUF_BUFG
+                         FDRE                                         r  x_im_sort_reg_reg[2812]/C
+                         clock pessimism              0.562     8.765    
+                         clock uncertainty           -0.035     8.729    
+                         FDRE (Setup_FDRE_C_D)        0.044     8.773    x_im_sort_reg_reg[2812]
+  -------------------------------------------------------------------
+                         required time                          8.773    
+                         arrival time                         -10.869    
+  -------------------------------------------------------------------
+                         slack                                 -2.095    
+
+Slack (VIOLATED) :        -2.094ns  (required time - arrival time)
+  Source:                 stage_reg[1]_rep__0/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            x_re_sort_reg_reg[2812]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.958ns  (logic 2.304ns (33.113%)  route 4.654ns (66.887%))
+  Logic Levels:           24  (CARRY8=5 LUT2=4 LUT3=4 LUT4=4 LUT5=2 LUT6=4 MUXF7=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.202ns = ( 8.202 - 5.000 ) 
+    Source Clock Delay      (SCD):    3.910ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     1.026     1.026 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     1.026    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     1.026 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     1.282    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.044     1.326 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.584     3.910    clk_IBUF_BUFG
+                         FDRE                                         r  stage_reg[1]_rep__0/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.114     4.024 r  stage_reg[1]_rep__0/Q
+                         net (fo=305, unplaced)       0.218     4.242    fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/x_re_sort_reg[5447]_i_14
+                                                                      r  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.152     4.394 f  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/O
+                         net (fo=1003, unplaced)      0.349     4.743    fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/x_re_sort_reg[2567]_i_13_0
+                                                                      f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_13__13/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     4.801 f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_13__13/O
+                         net (fo=127, unplaced)       0.302     5.103    fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/stage_reg[1]_rep__0_0
+                                                                      f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_12__14/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     5.161 r  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_12__14/O
+                         net (fo=119, unplaced)       0.300     5.461    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___144_i_8
+                                                                      r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_8__9/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.058     5.519 r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_8__9/O
+                         net (fo=141, unplaced)       0.320     5.839    fft_512/genblk6[95].w_im_rom/i___160_i_6_0
+                                                                      r  fft_512/genblk6[95].w_im_rom/i___95_i_5/S
+                         MUXF7 (Prop_MUXF7_S_O)       0.105     5.944 r  fft_512/genblk6[95].w_im_rom/i___95_i_5/O
+                         net (fo=1, unplaced)         0.209     6.153    fft_512/genblk6[95].w_im_rom/i___95_i_5_n_0
+                                                                      r  fft_512/genblk6[95].w_im_rom/i___95_i_1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058     6.211 r  fft_512/genblk6[95].w_im_rom/i___95_i_1/O
+                         net (fo=80, unplaced)        0.233     6.444    fft_512/genblk6[95].dft_2/w_im[95]_1599[5]
+                                                                      r  fft_512/genblk6[95].dft_2/i___95/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.137     6.581 r  fft_512/genblk6[95].dft_2/i___95/O
+                         net (fo=6, unplaced)         0.233     6.814    fft_512/genblk6[95].w_im_rom/i___180_i_19__48_1
+                                                                      r  fft_512/genblk6[95].w_im_rom/i___164_i_23__91/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.058     6.872 r  fft_512/genblk6[95].w_im_rom/i___164_i_23__91/O
+                         net (fo=1, unplaced)         0.211     7.083    fft_512/genblk6[95].w_im_rom/i___164_i_23__91_n_0
+                                                                      r  fft_512/genblk6[95].w_im_rom/i___164_i_19__91/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.058     7.141 r  fft_512/genblk6[95].w_im_rom/i___164_i_19__91/O
+                         net (fo=3, unplaced)         0.217     7.358    fft_512/genblk6[95].w_im_rom/genblk6[95].dft_2/im_im/u_wallace_tree_adder/s_01[14]
+                                                                      r  fft_512/genblk6[95].w_im_rom/product_carry__0_i_40__376/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     7.416 r  fft_512/genblk6[95].w_im_rom/product_carry__0_i_40__376/O
+                         net (fo=1, unplaced)         0.211     7.627    fft_512/genblk6[95].w_im_rom/product_carry__0_i_40__376_n_0
+                                                                      r  fft_512/genblk6[95].w_im_rom/product_carry__0_i_15__376/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058     7.685 r  fft_512/genblk6[95].w_im_rom/product_carry__0_i_15__376/O
+                         net (fo=2, unplaced)         0.211     7.896    fft_512/genblk6[95].dft_2/c_20[5]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__0/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.058     7.954 r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__0/O
+                         net (fo=2, unplaced)         0.211     8.165    fft_512/genblk6[95].dft_2/u_wallace_tree_adder/s_30_0[15]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__0/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.058     8.223 r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__0/O
+                         net (fo=1, unplaced)         0.023     8.246    fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/i___7[7]
+                                                                      r  fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/product_carry__0/S[7]
+                         CARRY8 (Prop_CARRY8_S[7]_CO[7])
+                                                      0.180     8.426 r  fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/product_carry__0/CO[7]
+                         net (fo=1, unplaced)         0.006     8.432    fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/product_carry__0_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/product_carry__1/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     8.538 r  fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/product_carry__1/O[1]
+                         net (fo=1, unplaced)         0.209     8.747    fft_512/genblk6[95].dft_2/pro_im_im[17]
+                                                                      r  fft_512/genblk6[95].dft_2/i___16/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     8.805 r  fft_512/genblk6[95].dft_2/i___16/O
+                         net (fo=1, unplaced)         0.021     8.826    fft_512/genblk6[95].dft_2/re_re/u_wallace_tree_adder/x_re_sort_reg[3047]_i_11[1]
+                                                                      r  fft_512/genblk6[95].dft_2/re_re/u_wallace_tree_adder/i___31_i_2__49/S[1]
+                         CARRY8 (Prop_CARRY8_S[1]_CO[7])
+                                                      0.269     9.095 r  fft_512/genblk6[95].dft_2/re_re/u_wallace_tree_adder/i___31_i_2__49/CO[7]
+                         net (fo=1, unplaced)         0.006     9.101    fft_512/genblk6[95].dft_2/re_re/u_wallace_tree_adder/i___31_i_2__49_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/re_re/u_wallace_tree_adder/i___39_i_2__49/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     9.207 r  fft_512/genblk6[95].dft_2/re_re/u_wallace_tree_adder/i___39_i_2__49/O[1]
+                         net (fo=2, unplaced)         0.209     9.416    genblk6[95].dft_2/p_0_in2_in[11]
+                                                                      r  x_re_sort_reg[3055]_i_10/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.057     9.473 r  x_re_sort_reg[3055]_i_10/O
+                         net (fo=1, unplaced)         0.021     9.494    x_re_sort_reg[3055]_i_10_n_0
+                                                                      r  x_re_sort_reg_reg[3055]_i_5/S[3]
+                         CARRY8 (Prop_CARRY8_S[3]_O[4])
+                                                      0.208     9.702 r  x_re_sort_reg_reg[3055]_i_5/O[4]
+                         net (fo=7, unplaced)         0.234     9.936    x_re_sort_o[190]_190[12]
+                                                                      r  x_re_sort_reg[2812]_i_4/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.058     9.994 r  x_re_sort_reg[2812]_i_4/O
+                         net (fo=1, unplaced)         0.211    10.205    x_re_sort_reg[2812]_i_4_n_0
+                                                                      r  x_re_sort_reg[2812]_i_3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.058    10.263 r  x_re_sort_reg[2812]_i_3/O
+                         net (fo=1, unplaced)         0.211    10.474    x_re_sort_reg[2812]_i_3_n_0
+                                                                      r  x_re_sort_reg[2812]_i_2/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058    10.532 r  x_re_sort_reg[2812]_i_2/O
+                         net (fo=2, unplaced)         0.211    10.743    x_re_unpack[175][12]
+                                                                      r  x_re_sort_reg[2812]_i_1/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.058    10.801 r  x_re_sort_reg[2812]_i_1/O
+                         net (fo=1, unplaced)         0.067    10.868    x_re_sort_reg[2812]
+                         FDRE                                         r  x_re_sort_reg_reg[2812]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.518     5.518 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.518    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.518 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.206     5.724    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.039     5.763 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.439     8.202    clk_IBUF_BUFG
+                         FDRE                                         r  x_re_sort_reg_reg[2812]/C
+                         clock pessimism              0.562     8.765    
+                         clock uncertainty           -0.035     8.729    
+                         FDRE (Setup_FDRE_C_D)        0.044     8.773    x_re_sort_reg_reg[2812]
+  -------------------------------------------------------------------
+                         required time                          8.773    
+                         arrival time                         -10.868    
+  -------------------------------------------------------------------
+                         slack                                 -2.094    
+
+Slack (VIOLATED) :        -2.088ns  (required time - arrival time)
+  Source:                 stage_reg[1]_rep__0/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            x_im_sort_reg_reg[2815]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.952ns  (logic 2.355ns (33.875%)  route 4.597ns (66.125%))
+  Logic Levels:           24  (CARRY8=5 LUT2=4 LUT3=4 LUT4=4 LUT5=2 LUT6=4 MUXF7=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.202ns = ( 8.202 - 5.000 ) 
+    Source Clock Delay      (SCD):    3.910ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     1.026     1.026 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     1.026    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     1.026 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     1.282    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.044     1.326 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.584     3.910    clk_IBUF_BUFG
+                         FDRE                                         r  stage_reg[1]_rep__0/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.114     4.024 r  stage_reg[1]_rep__0/Q
+                         net (fo=305, unplaced)       0.218     4.242    fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/x_re_sort_reg[5447]_i_14
+                                                                      r  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.152     4.394 f  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/O
+                         net (fo=1003, unplaced)      0.349     4.743    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___78_i_11__3_0
+                                                                      f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     4.801 f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/O
+                         net (fo=127, unplaced)       0.302     5.103    fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___78_i_5
+                                                                      f  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     5.161 r  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/O
+                         net (fo=119, unplaced)       0.300     5.461    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___117_i_6__3
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.058     5.519 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/O
+                         net (fo=144, unplaced)       0.321     5.840    fft_512/genblk6[95].w_re_rom/i___199_i_5__72_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_6/S
+                         MUXF7 (Prop_MUXF7_S_O)       0.105     5.945 r  fft_512/genblk6[95].w_re_rom/i___86_i_6/O
+                         net (fo=1, unplaced)         0.209     6.154    fft_512/genblk6[95].w_re_rom/i___86_i_6_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058     6.212 r  fft_512/genblk6[95].w_re_rom/i___86_i_1/O
+                         net (fo=80, unplaced)        0.233     6.445    fft_512/genblk6[95].dft_2/w_re[95]_1598[5]
+                                                                      r  fft_512/genblk6[95].dft_2/i___86/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.137     6.582 r  fft_512/genblk6[95].dft_2/i___86/O
+                         net (fo=6, unplaced)         0.233     6.815    fft_512/genblk6[95].w_re_rom/i___196_i_19__29_1
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.058     6.873 r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/O
+                         net (fo=1, unplaced)         0.211     7.084    fft_512/genblk6[95].w_re_rom/i___196_i_22__29_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.058     7.142 r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/O
+                         net (fo=3, unplaced)         0.217     7.359    fft_512/genblk6[95].w_re_rom/genblk6[95].dft_2/im_re/u_wallace_tree_adder/s_01[14]
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     7.417 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/O
+                         net (fo=1, unplaced)         0.211     7.628    fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058     7.686 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/O
+                         net (fo=2, unplaced)         0.211     7.897    fft_512/genblk6[95].dft_2/product_carry__2_11[5]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.058     7.955 r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/O
+                         net (fo=2, unplaced)         0.211     8.166    fft_512/genblk6[95].dft_2/u_wallace_tree_adder/s_30_8[15]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.058     8.224 r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/O
+                         net (fo=1, unplaced)         0.023     8.247    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___45_i_15__28[7]
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/S[7]
+                         CARRY8 (Prop_CARRY8_S[7]_CO[7])
+                                                      0.180     8.427 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/CO[7]
+                         net (fo=1, unplaced)         0.006     8.433    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     8.539 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/O[1]
+                         net (fo=1, unplaced)         0.209     8.748    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/pro_im_re[17]
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     8.806 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/O
+                         net (fo=1, unplaced)         0.021     8.827    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/S[1]
+                         CARRY8 (Prop_CARRY8_S[1]_CO[7])
+                                                      0.269     9.096 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/CO[7]
+                         net (fo=1, unplaced)         0.006     9.102    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___55_i_2__29/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     9.208 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___55_i_2__29/O[1]
+                         net (fo=2, unplaced)         0.209     9.417    genblk6[95].dft_2/p_0_in[11]
+                                                                      r  x_im_sort_reg[1535]_i_18/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.057     9.474 r  x_im_sort_reg[1535]_i_18/O
+                         net (fo=1, unplaced)         0.021     9.495    x_im_sort_reg[1535]_i_18_n_0
+                                                                      r  x_im_sort_reg_reg[1535]_i_6/S[3]
+                         CARRY8 (Prop_CARRY8_S[3]_O[7])
+                                                      0.259     9.754 r  x_im_sort_reg_reg[1535]_i_6/O[7]
+                         net (fo=7, unplaced)         0.176     9.930    x_im_sort_o[190]_191[15]
+                                                                      r  x_im_sort_reg[2815]_i_4/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     9.988 r  x_im_sort_reg[2815]_i_4/O
+                         net (fo=1, unplaced)         0.211    10.199    x_im_sort_reg[2815]_i_4_n_0
+                                                                      r  x_im_sort_reg[2815]_i_3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.058    10.257 r  x_im_sort_reg[2815]_i_3/O
+                         net (fo=1, unplaced)         0.211    10.468    x_im_sort_reg[2815]_i_3_n_0
+                                                                      r  x_im_sort_reg[2815]_i_2/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058    10.526 r  x_im_sort_reg[2815]_i_2/O
+                         net (fo=2, unplaced)         0.211    10.737    x_im_unpack[175][15]
+                                                                      r  x_im_sort_reg[2815]_i_1/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.058    10.795 r  x_im_sort_reg[2815]_i_1/O
+                         net (fo=1, unplaced)         0.067    10.862    x_im_sort_reg[2815]
+                         FDRE                                         r  x_im_sort_reg_reg[2815]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.518     5.518 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.518    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.518 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.206     5.724    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.039     5.763 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.439     8.202    clk_IBUF_BUFG
+                         FDRE                                         r  x_im_sort_reg_reg[2815]/C
+                         clock pessimism              0.562     8.765    
+                         clock uncertainty           -0.035     8.729    
+                         FDRE (Setup_FDRE_C_D)        0.044     8.773    x_im_sort_reg_reg[2815]
+  -------------------------------------------------------------------
+                         required time                          8.773    
+                         arrival time                         -10.862    
+  -------------------------------------------------------------------
+                         slack                                 -2.088    
+
+Slack (VIOLATED) :        -2.075ns  (required time - arrival time)
+  Source:                 stage_reg[1]_rep__0/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            x_im_sort_reg_reg[2809]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.939ns  (logic 2.285ns (32.930%)  route 4.654ns (67.070%))
+  Logic Levels:           24  (CARRY8=5 LUT2=4 LUT3=4 LUT4=4 LUT5=2 LUT6=4 MUXF7=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.202ns = ( 8.202 - 5.000 ) 
+    Source Clock Delay      (SCD):    3.910ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     1.026     1.026 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     1.026    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     1.026 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     1.282    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.044     1.326 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.584     3.910    clk_IBUF_BUFG
+                         FDRE                                         r  stage_reg[1]_rep__0/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.114     4.024 r  stage_reg[1]_rep__0/Q
+                         net (fo=305, unplaced)       0.218     4.242    fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/x_re_sort_reg[5447]_i_14
+                                                                      r  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.152     4.394 f  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/O
+                         net (fo=1003, unplaced)      0.349     4.743    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___78_i_11__3_0
+                                                                      f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     4.801 f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/O
+                         net (fo=127, unplaced)       0.302     5.103    fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___78_i_5
+                                                                      f  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     5.161 r  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/O
+                         net (fo=119, unplaced)       0.300     5.461    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___117_i_6__3
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.058     5.519 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/O
+                         net (fo=144, unplaced)       0.321     5.840    fft_512/genblk6[95].w_re_rom/i___199_i_5__72_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_6/S
+                         MUXF7 (Prop_MUXF7_S_O)       0.105     5.945 r  fft_512/genblk6[95].w_re_rom/i___86_i_6/O
+                         net (fo=1, unplaced)         0.209     6.154    fft_512/genblk6[95].w_re_rom/i___86_i_6_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058     6.212 r  fft_512/genblk6[95].w_re_rom/i___86_i_1/O
+                         net (fo=80, unplaced)        0.233     6.445    fft_512/genblk6[95].dft_2/w_re[95]_1598[5]
+                                                                      r  fft_512/genblk6[95].dft_2/i___86/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.137     6.582 r  fft_512/genblk6[95].dft_2/i___86/O
+                         net (fo=6, unplaced)         0.233     6.815    fft_512/genblk6[95].w_re_rom/i___196_i_19__29_1
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.058     6.873 r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/O
+                         net (fo=1, unplaced)         0.211     7.084    fft_512/genblk6[95].w_re_rom/i___196_i_22__29_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.058     7.142 r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/O
+                         net (fo=3, unplaced)         0.217     7.359    fft_512/genblk6[95].w_re_rom/genblk6[95].dft_2/im_re/u_wallace_tree_adder/s_01[14]
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     7.417 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/O
+                         net (fo=1, unplaced)         0.211     7.628    fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058     7.686 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/O
+                         net (fo=2, unplaced)         0.211     7.897    fft_512/genblk6[95].dft_2/product_carry__2_11[5]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.058     7.955 r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/O
+                         net (fo=2, unplaced)         0.211     8.166    fft_512/genblk6[95].dft_2/u_wallace_tree_adder/s_30_8[15]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.058     8.224 r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/O
+                         net (fo=1, unplaced)         0.023     8.247    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___45_i_15__28[7]
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/S[7]
+                         CARRY8 (Prop_CARRY8_S[7]_CO[7])
+                                                      0.180     8.427 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/CO[7]
+                         net (fo=1, unplaced)         0.006     8.433    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     8.539 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/O[1]
+                         net (fo=1, unplaced)         0.209     8.748    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/pro_im_re[17]
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     8.806 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/O
+                         net (fo=1, unplaced)         0.021     8.827    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/S[1]
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.279     9.106 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/O[4]
+                         net (fo=2, unplaced)         0.209     9.315    genblk6[95].dft_2/p_0_in[6]
+                                                                      r  x_im_sort_reg[1527]_i_15/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.057     9.372 r  x_im_sort_reg[1527]_i_15/O
+                         net (fo=1, unplaced)         0.020     9.392    x_im_sort_reg[1527]_i_15_n_0
+                                                                      r  x_im_sort_reg_reg[1527]_i_5/S[6]
+                         CARRY8 (Prop_CARRY8_S[6]_CO[7])
+                                                      0.179     9.571 r  x_im_sort_reg_reg[1527]_i_5/CO[7]
+                         net (fo=1, unplaced)         0.006     9.577    x_im_sort_reg_reg[1527]_i_5_n_0
+                                                                      r  x_im_sort_reg_reg[1535]_i_6/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     9.683 r  x_im_sort_reg_reg[1535]_i_6/O[1]
+                         net (fo=7, unplaced)         0.234     9.917    x_im_sort_o[190]_191[9]
+                                                                      r  x_im_sort_reg[2809]_i_4/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     9.975 r  x_im_sort_reg[2809]_i_4/O
+                         net (fo=1, unplaced)         0.211    10.186    x_im_sort_reg[2809]_i_4_n_0
+                                                                      r  x_im_sort_reg[2809]_i_3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.058    10.244 r  x_im_sort_reg[2809]_i_3/O
+                         net (fo=1, unplaced)         0.211    10.455    x_im_sort_reg[2809]_i_3_n_0
+                                                                      r  x_im_sort_reg[2809]_i_2/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058    10.513 r  x_im_sort_reg[2809]_i_2/O
+                         net (fo=2, unplaced)         0.211    10.724    x_im_unpack[175][9]
+                                                                      r  x_im_sort_reg[2809]_i_1/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.058    10.782 r  x_im_sort_reg[2809]_i_1/O
+                         net (fo=1, unplaced)         0.067    10.849    x_im_sort_reg[2809]
+                         FDRE                                         r  x_im_sort_reg_reg[2809]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.518     5.518 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.518    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.518 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.206     5.724    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.039     5.763 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.439     8.202    clk_IBUF_BUFG
+                         FDRE                                         r  x_im_sort_reg_reg[2809]/C
+                         clock pessimism              0.562     8.765    
+                         clock uncertainty           -0.035     8.729    
+                         FDRE (Setup_FDRE_C_D)        0.044     8.773    x_im_sort_reg_reg[2809]
+  -------------------------------------------------------------------
+                         required time                          8.773    
+                         arrival time                         -10.849    
+  -------------------------------------------------------------------
+                         slack                                 -2.075    
+
+Slack (VIOLATED) :        -2.068ns  (required time - arrival time)
+  Source:                 stage_reg[1]_rep__0/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            x_im_sort_reg_reg[2814]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.932ns  (logic 2.336ns (33.699%)  route 4.596ns (66.301%))
+  Logic Levels:           24  (CARRY8=5 LUT2=4 LUT3=4 LUT4=4 LUT5=2 LUT6=4 MUXF7=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.202ns = ( 8.202 - 5.000 ) 
+    Source Clock Delay      (SCD):    3.910ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     1.026     1.026 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     1.026    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     1.026 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     1.282    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.044     1.326 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.584     3.910    clk_IBUF_BUFG
+                         FDRE                                         r  stage_reg[1]_rep__0/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.114     4.024 r  stage_reg[1]_rep__0/Q
+                         net (fo=305, unplaced)       0.218     4.242    fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/x_re_sort_reg[5447]_i_14
+                                                                      r  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.152     4.394 f  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/O
+                         net (fo=1003, unplaced)      0.349     4.743    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___78_i_11__3_0
+                                                                      f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     4.801 f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/O
+                         net (fo=127, unplaced)       0.302     5.103    fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___78_i_5
+                                                                      f  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     5.161 r  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/O
+                         net (fo=119, unplaced)       0.300     5.461    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___117_i_6__3
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.058     5.519 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/O
+                         net (fo=144, unplaced)       0.321     5.840    fft_512/genblk6[95].w_re_rom/i___199_i_5__72_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_6/S
+                         MUXF7 (Prop_MUXF7_S_O)       0.105     5.945 r  fft_512/genblk6[95].w_re_rom/i___86_i_6/O
+                         net (fo=1, unplaced)         0.209     6.154    fft_512/genblk6[95].w_re_rom/i___86_i_6_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058     6.212 r  fft_512/genblk6[95].w_re_rom/i___86_i_1/O
+                         net (fo=80, unplaced)        0.233     6.445    fft_512/genblk6[95].dft_2/w_re[95]_1598[5]
+                                                                      r  fft_512/genblk6[95].dft_2/i___86/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.137     6.582 r  fft_512/genblk6[95].dft_2/i___86/O
+                         net (fo=6, unplaced)         0.233     6.815    fft_512/genblk6[95].w_re_rom/i___196_i_19__29_1
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.058     6.873 r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/O
+                         net (fo=1, unplaced)         0.211     7.084    fft_512/genblk6[95].w_re_rom/i___196_i_22__29_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.058     7.142 r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/O
+                         net (fo=3, unplaced)         0.217     7.359    fft_512/genblk6[95].w_re_rom/genblk6[95].dft_2/im_re/u_wallace_tree_adder/s_01[14]
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     7.417 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/O
+                         net (fo=1, unplaced)         0.211     7.628    fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058     7.686 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/O
+                         net (fo=2, unplaced)         0.211     7.897    fft_512/genblk6[95].dft_2/product_carry__2_11[5]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.058     7.955 r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/O
+                         net (fo=2, unplaced)         0.211     8.166    fft_512/genblk6[95].dft_2/u_wallace_tree_adder/s_30_8[15]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.058     8.224 r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/O
+                         net (fo=1, unplaced)         0.023     8.247    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___45_i_15__28[7]
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/S[7]
+                         CARRY8 (Prop_CARRY8_S[7]_CO[7])
+                                                      0.180     8.427 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/CO[7]
+                         net (fo=1, unplaced)         0.006     8.433    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     8.539 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/O[1]
+                         net (fo=1, unplaced)         0.209     8.748    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/pro_im_re[17]
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     8.806 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/O
+                         net (fo=1, unplaced)         0.021     8.827    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/S[1]
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.279     9.106 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/O[4]
+                         net (fo=2, unplaced)         0.209     9.315    genblk6[95].dft_2/p_0_in[6]
+                                                                      r  x_im_sort_reg[1527]_i_15/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.057     9.372 r  x_im_sort_reg[1527]_i_15/O
+                         net (fo=1, unplaced)         0.020     9.392    x_im_sort_reg[1527]_i_15_n_0
+                                                                      r  x_im_sort_reg_reg[1527]_i_5/S[6]
+                         CARRY8 (Prop_CARRY8_S[6]_CO[7])
+                                                      0.179     9.571 r  x_im_sort_reg_reg[1527]_i_5/CO[7]
+                         net (fo=1, unplaced)         0.006     9.577    x_im_sort_reg_reg[1527]_i_5_n_0
+                                                                      r  x_im_sort_reg_reg[1535]_i_6/CI
+                         CARRY8 (Prop_CARRY8_CI_O[6])
+                                                      0.157     9.734 r  x_im_sort_reg_reg[1535]_i_6/O[6]
+                         net (fo=7, unplaced)         0.176     9.910    x_im_sort_o[190]_191[14]
+                                                                      r  x_im_sort_reg[2814]_i_4/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     9.968 r  x_im_sort_reg[2814]_i_4/O
+                         net (fo=1, unplaced)         0.211    10.179    x_im_sort_reg[2814]_i_4_n_0
+                                                                      r  x_im_sort_reg[2814]_i_3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.058    10.237 r  x_im_sort_reg[2814]_i_3/O
+                         net (fo=1, unplaced)         0.211    10.448    x_im_sort_reg[2814]_i_3_n_0
+                                                                      r  x_im_sort_reg[2814]_i_2/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058    10.506 r  x_im_sort_reg[2814]_i_2/O
+                         net (fo=2, unplaced)         0.211    10.717    x_im_unpack[175][14]
+                                                                      r  x_im_sort_reg[2814]_i_1/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.058    10.775 r  x_im_sort_reg[2814]_i_1/O
+                         net (fo=1, unplaced)         0.067    10.842    x_im_sort_reg[2814]
+                         FDRE                                         r  x_im_sort_reg_reg[2814]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.518     5.518 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.518    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.518 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.206     5.724    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.039     5.763 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.439     8.202    clk_IBUF_BUFG
+                         FDRE                                         r  x_im_sort_reg_reg[2814]/C
+                         clock pessimism              0.562     8.765    
+                         clock uncertainty           -0.035     8.729    
+                         FDRE (Setup_FDRE_C_D)        0.044     8.773    x_im_sort_reg_reg[2814]
+  -------------------------------------------------------------------
+                         required time                          8.773    
+                         arrival time                         -10.842    
+  -------------------------------------------------------------------
+                         slack                                 -2.068    
+
+Slack (VIOLATED) :        -2.064ns  (required time - arrival time)
+  Source:                 stage_reg[1]_rep__0/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            x_im_sort_reg_reg[2810]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.928ns  (logic 2.272ns (32.794%)  route 4.656ns (67.206%))
+  Logic Levels:           24  (CARRY8=5 LUT2=4 LUT3=4 LUT4=4 LUT5=2 LUT6=4 MUXF7=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.202ns = ( 8.202 - 5.000 ) 
+    Source Clock Delay      (SCD):    3.910ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     1.026     1.026 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     1.026    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     1.026 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     1.282    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.044     1.326 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.584     3.910    clk_IBUF_BUFG
+                         FDRE                                         r  stage_reg[1]_rep__0/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.114     4.024 r  stage_reg[1]_rep__0/Q
+                         net (fo=305, unplaced)       0.218     4.242    fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/x_re_sort_reg[5447]_i_14
+                                                                      r  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.152     4.394 f  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/O
+                         net (fo=1003, unplaced)      0.349     4.743    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___78_i_11__3_0
+                                                                      f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     4.801 f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/O
+                         net (fo=127, unplaced)       0.302     5.103    fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___78_i_5
+                                                                      f  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     5.161 r  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/O
+                         net (fo=119, unplaced)       0.300     5.461    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___117_i_6__3
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.058     5.519 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/O
+                         net (fo=144, unplaced)       0.321     5.840    fft_512/genblk6[95].w_re_rom/i___199_i_5__72_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_6/S
+                         MUXF7 (Prop_MUXF7_S_O)       0.105     5.945 r  fft_512/genblk6[95].w_re_rom/i___86_i_6/O
+                         net (fo=1, unplaced)         0.209     6.154    fft_512/genblk6[95].w_re_rom/i___86_i_6_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058     6.212 r  fft_512/genblk6[95].w_re_rom/i___86_i_1/O
+                         net (fo=80, unplaced)        0.233     6.445    fft_512/genblk6[95].dft_2/w_re[95]_1598[5]
+                                                                      r  fft_512/genblk6[95].dft_2/i___86/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.137     6.582 r  fft_512/genblk6[95].dft_2/i___86/O
+                         net (fo=6, unplaced)         0.233     6.815    fft_512/genblk6[95].w_re_rom/i___196_i_19__29_1
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.058     6.873 r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/O
+                         net (fo=1, unplaced)         0.211     7.084    fft_512/genblk6[95].w_re_rom/i___196_i_22__29_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.058     7.142 r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/O
+                         net (fo=3, unplaced)         0.217     7.359    fft_512/genblk6[95].w_re_rom/genblk6[95].dft_2/im_re/u_wallace_tree_adder/s_01[14]
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     7.417 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/O
+                         net (fo=1, unplaced)         0.211     7.628    fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058     7.686 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/O
+                         net (fo=2, unplaced)         0.211     7.897    fft_512/genblk6[95].dft_2/product_carry__2_11[5]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.058     7.955 r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/O
+                         net (fo=2, unplaced)         0.211     8.166    fft_512/genblk6[95].dft_2/u_wallace_tree_adder/s_30_8[15]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.058     8.224 r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/O
+                         net (fo=1, unplaced)         0.023     8.247    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___45_i_15__28[7]
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/S[7]
+                         CARRY8 (Prop_CARRY8_S[7]_CO[7])
+                                                      0.180     8.427 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/CO[7]
+                         net (fo=1, unplaced)         0.006     8.433    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     8.539 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/O[1]
+                         net (fo=1, unplaced)         0.209     8.748    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/pro_im_re[17]
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     8.806 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/O
+                         net (fo=1, unplaced)         0.021     8.827    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/S[1]
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.279     9.106 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/O[4]
+                         net (fo=2, unplaced)         0.209     9.315    genblk6[95].dft_2/p_0_in[6]
+                                                                      r  x_im_sort_reg[1527]_i_15/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.057     9.372 r  x_im_sort_reg[1527]_i_15/O
+                         net (fo=1, unplaced)         0.020     9.392    x_im_sort_reg[1527]_i_15_n_0
+                                                                      r  x_im_sort_reg_reg[1527]_i_5/S[6]
+                         CARRY8 (Prop_CARRY8_S[6]_CO[7])
+                                                      0.179     9.571 r  x_im_sort_reg_reg[1527]_i_5/CO[7]
+                         net (fo=1, unplaced)         0.006     9.577    x_im_sort_reg_reg[1527]_i_5_n_0
+                                                                      r  x_im_sort_reg_reg[1535]_i_6/CI
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.093     9.670 r  x_im_sort_reg_reg[1535]_i_6/O[2]
+                         net (fo=7, unplaced)         0.236     9.906    x_im_sort_o[190]_191[10]
+                                                                      r  x_im_sort_reg[2810]_i_4/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     9.964 r  x_im_sort_reg[2810]_i_4/O
+                         net (fo=1, unplaced)         0.211    10.175    x_im_sort_reg[2810]_i_4_n_0
+                                                                      r  x_im_sort_reg[2810]_i_3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.058    10.233 r  x_im_sort_reg[2810]_i_3/O
+                         net (fo=1, unplaced)         0.211    10.444    x_im_sort_reg[2810]_i_3_n_0
+                                                                      r  x_im_sort_reg[2810]_i_2/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058    10.502 r  x_im_sort_reg[2810]_i_2/O
+                         net (fo=2, unplaced)         0.211    10.713    x_im_unpack[175][10]
+                                                                      r  x_im_sort_reg[2810]_i_1/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.058    10.771 r  x_im_sort_reg[2810]_i_1/O
+                         net (fo=1, unplaced)         0.067    10.838    x_im_sort_reg[2810]
+                         FDRE                                         r  x_im_sort_reg_reg[2810]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.518     5.518 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.518    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.518 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.206     5.724    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.039     5.763 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.439     8.202    clk_IBUF_BUFG
+                         FDRE                                         r  x_im_sort_reg_reg[2810]/C
+                         clock pessimism              0.562     8.765    
+                         clock uncertainty           -0.035     8.729    
+                         FDRE (Setup_FDRE_C_D)        0.044     8.773    x_im_sort_reg_reg[2810]
+  -------------------------------------------------------------------
+                         required time                          8.773    
+                         arrival time                         -10.838    
+  -------------------------------------------------------------------
+                         slack                                 -2.064    
+
+Slack (VIOLATED) :        -2.063ns  (required time - arrival time)
+  Source:                 stage_reg[1]_rep__0/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            x_re_sort_reg_reg[2810]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.927ns  (logic 2.272ns (32.799%)  route 4.655ns (67.201%))
+  Logic Levels:           24  (CARRY8=5 LUT2=4 LUT3=4 LUT4=4 LUT5=2 LUT6=4 MUXF7=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.202ns = ( 8.202 - 5.000 ) 
+    Source Clock Delay      (SCD):    3.910ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     1.026     1.026 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     1.026    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     1.026 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     1.282    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.044     1.326 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.584     3.910    clk_IBUF_BUFG
+                         FDRE                                         r  stage_reg[1]_rep__0/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.114     4.024 r  stage_reg[1]_rep__0/Q
+                         net (fo=305, unplaced)       0.218     4.242    fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/x_re_sort_reg[5447]_i_14
+                                                                      r  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.152     4.394 f  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/O
+                         net (fo=1003, unplaced)      0.349     4.743    fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/x_re_sort_reg[2567]_i_13_0
+                                                                      f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_13__13/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     4.801 f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_13__13/O
+                         net (fo=127, unplaced)       0.302     5.103    fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/stage_reg[1]_rep__0_0
+                                                                      f  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_12__14/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     5.161 r  fft_512/genblk6[223].dft_2/re_im/u_wallace_tree_adder/i___133_i_12__14/O
+                         net (fo=119, unplaced)       0.300     5.461    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___144_i_8
+                                                                      r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_8__9/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.058     5.519 r  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_8__9/O
+                         net (fo=141, unplaced)       0.320     5.839    fft_512/genblk6[95].w_im_rom/i___160_i_6_0
+                                                                      r  fft_512/genblk6[95].w_im_rom/i___95_i_5/S
+                         MUXF7 (Prop_MUXF7_S_O)       0.105     5.944 r  fft_512/genblk6[95].w_im_rom/i___95_i_5/O
+                         net (fo=1, unplaced)         0.209     6.153    fft_512/genblk6[95].w_im_rom/i___95_i_5_n_0
+                                                                      r  fft_512/genblk6[95].w_im_rom/i___95_i_1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058     6.211 r  fft_512/genblk6[95].w_im_rom/i___95_i_1/O
+                         net (fo=80, unplaced)        0.233     6.444    fft_512/genblk6[95].dft_2/w_im[95]_1599[5]
+                                                                      r  fft_512/genblk6[95].dft_2/i___95/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.137     6.581 r  fft_512/genblk6[95].dft_2/i___95/O
+                         net (fo=6, unplaced)         0.233     6.814    fft_512/genblk6[95].w_im_rom/i___180_i_19__48_1
+                                                                      r  fft_512/genblk6[95].w_im_rom/i___164_i_23__91/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.058     6.872 r  fft_512/genblk6[95].w_im_rom/i___164_i_23__91/O
+                         net (fo=1, unplaced)         0.211     7.083    fft_512/genblk6[95].w_im_rom/i___164_i_23__91_n_0
+                                                                      r  fft_512/genblk6[95].w_im_rom/i___164_i_19__91/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.058     7.141 r  fft_512/genblk6[95].w_im_rom/i___164_i_19__91/O
+                         net (fo=3, unplaced)         0.217     7.358    fft_512/genblk6[95].w_im_rom/genblk6[95].dft_2/im_im/u_wallace_tree_adder/s_01[14]
+                                                                      r  fft_512/genblk6[95].w_im_rom/product_carry__0_i_40__376/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     7.416 r  fft_512/genblk6[95].w_im_rom/product_carry__0_i_40__376/O
+                         net (fo=1, unplaced)         0.211     7.627    fft_512/genblk6[95].w_im_rom/product_carry__0_i_40__376_n_0
+                                                                      r  fft_512/genblk6[95].w_im_rom/product_carry__0_i_15__376/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058     7.685 r  fft_512/genblk6[95].w_im_rom/product_carry__0_i_15__376/O
+                         net (fo=2, unplaced)         0.211     7.896    fft_512/genblk6[95].dft_2/c_20[5]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__0/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.058     7.954 r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__0/O
+                         net (fo=2, unplaced)         0.211     8.165    fft_512/genblk6[95].dft_2/u_wallace_tree_adder/s_30_0[15]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__0/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.058     8.223 r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__0/O
+                         net (fo=1, unplaced)         0.023     8.246    fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/i___7[7]
+                                                                      r  fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/product_carry__0/S[7]
+                         CARRY8 (Prop_CARRY8_S[7]_CO[7])
+                                                      0.180     8.426 r  fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/product_carry__0/CO[7]
+                         net (fo=1, unplaced)         0.006     8.432    fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/product_carry__0_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/product_carry__1/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     8.538 r  fft_512/genblk6[95].dft_2/im_im/u_wallace_tree_adder/product_carry__1/O[1]
+                         net (fo=1, unplaced)         0.209     8.747    fft_512/genblk6[95].dft_2/pro_im_im[17]
+                                                                      r  fft_512/genblk6[95].dft_2/i___16/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     8.805 r  fft_512/genblk6[95].dft_2/i___16/O
+                         net (fo=1, unplaced)         0.021     8.826    fft_512/genblk6[95].dft_2/re_re/u_wallace_tree_adder/x_re_sort_reg[3047]_i_11[1]
+                                                                      r  fft_512/genblk6[95].dft_2/re_re/u_wallace_tree_adder/i___31_i_2__49/S[1]
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.279     9.105 r  fft_512/genblk6[95].dft_2/re_re/u_wallace_tree_adder/i___31_i_2__49/O[4]
+                         net (fo=2, unplaced)         0.209     9.314    genblk6[95].dft_2/p_0_in2_in[6]
+                                                                      r  x_re_sort_reg[3047]_i_7/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.057     9.371 r  x_re_sort_reg[3047]_i_7/O
+                         net (fo=1, unplaced)         0.020     9.391    x_re_sort_reg[3047]_i_7_n_0
+                                                                      r  x_re_sort_reg_reg[3047]_i_5/S[6]
+                         CARRY8 (Prop_CARRY8_S[6]_CO[7])
+                                                      0.179     9.570 r  x_re_sort_reg_reg[3047]_i_5/CO[7]
+                         net (fo=1, unplaced)         0.006     9.576    x_re_sort_reg_reg[3047]_i_5_n_0
+                                                                      r  x_re_sort_reg_reg[3055]_i_5/CI
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.093     9.669 r  x_re_sort_reg_reg[3055]_i_5/O[2]
+                         net (fo=7, unplaced)         0.236     9.905    x_re_sort_o[190]_190[10]
+                                                                      r  x_re_sort_reg[2810]_i_4/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.058     9.963 r  x_re_sort_reg[2810]_i_4/O
+                         net (fo=1, unplaced)         0.211    10.174    x_re_sort_reg[2810]_i_4_n_0
+                                                                      r  x_re_sort_reg[2810]_i_3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.058    10.232 r  x_re_sort_reg[2810]_i_3/O
+                         net (fo=1, unplaced)         0.211    10.443    x_re_sort_reg[2810]_i_3_n_0
+                                                                      r  x_re_sort_reg[2810]_i_2/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058    10.501 r  x_re_sort_reg[2810]_i_2/O
+                         net (fo=2, unplaced)         0.211    10.712    x_re_unpack[175][10]
+                                                                      r  x_re_sort_reg[2810]_i_1/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.058    10.770 r  x_re_sort_reg[2810]_i_1/O
+                         net (fo=1, unplaced)         0.067    10.837    x_re_sort_reg[2810]
+                         FDRE                                         r  x_re_sort_reg_reg[2810]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.518     5.518 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.518    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.518 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.206     5.724    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.039     5.763 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.439     8.202    clk_IBUF_BUFG
+                         FDRE                                         r  x_re_sort_reg_reg[2810]/C
+                         clock pessimism              0.562     8.765    
+                         clock uncertainty           -0.035     8.729    
+                         FDRE (Setup_FDRE_C_D)        0.044     8.773    x_re_sort_reg_reg[2810]
+  -------------------------------------------------------------------
+                         required time                          8.773    
+                         arrival time                         -10.837    
+  -------------------------------------------------------------------
+                         slack                                 -2.063    
+
+Slack (VIOLATED) :        -2.049ns  (required time - arrival time)
+  Source:                 stage_reg[1]_rep__0/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            x_im_sort_reg_reg[2808]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.913ns  (logic 2.257ns (32.649%)  route 4.656ns (67.351%))
+  Logic Levels:           24  (CARRY8=5 LUT2=4 LUT3=4 LUT4=4 LUT5=2 LUT6=4 MUXF7=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.202ns = ( 8.202 - 5.000 ) 
+    Source Clock Delay      (SCD):    3.910ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     1.026     1.026 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     1.026    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     1.026 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     1.282    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.044     1.326 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.584     3.910    clk_IBUF_BUFG
+                         FDRE                                         r  stage_reg[1]_rep__0/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.114     4.024 r  stage_reg[1]_rep__0/Q
+                         net (fo=305, unplaced)       0.218     4.242    fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/x_re_sort_reg[5447]_i_14
+                                                                      r  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.152     4.394 f  fft_512/genblk6[128].dft_2/im_re/u_wallace_tree_adder/i___203_i_1__159/O
+                         net (fo=1003, unplaced)      0.349     4.743    fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___78_i_11__3_0
+                                                                      f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     4.801 f  fft_512/genblk6[159].dft_2/im_re/u_wallace_tree_adder/i___133_i_15__2/O
+                         net (fo=127, unplaced)       0.302     5.103    fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___78_i_5
+                                                                      f  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     5.161 r  fft_512/genblk6[127].dft_2/im_re/u_wallace_tree_adder/i___101_i_12__30/O
+                         net (fo=119, unplaced)       0.300     5.461    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___117_i_6__3
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.058     5.519 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___101_i_8__10/O
+                         net (fo=144, unplaced)       0.321     5.840    fft_512/genblk6[95].w_re_rom/i___199_i_5__72_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_6/S
+                         MUXF7 (Prop_MUXF7_S_O)       0.105     5.945 r  fft_512/genblk6[95].w_re_rom/i___86_i_6/O
+                         net (fo=1, unplaced)         0.209     6.154    fft_512/genblk6[95].w_re_rom/i___86_i_6_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___86_i_1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058     6.212 r  fft_512/genblk6[95].w_re_rom/i___86_i_1/O
+                         net (fo=80, unplaced)        0.233     6.445    fft_512/genblk6[95].dft_2/w_re[95]_1598[5]
+                                                                      r  fft_512/genblk6[95].dft_2/i___86/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.137     6.582 r  fft_512/genblk6[95].dft_2/i___86/O
+                         net (fo=6, unplaced)         0.233     6.815    fft_512/genblk6[95].w_re_rom/i___196_i_19__29_1
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.058     6.873 r  fft_512/genblk6[95].w_re_rom/i___196_i_22__29/O
+                         net (fo=1, unplaced)         0.211     7.084    fft_512/genblk6[95].w_re_rom/i___196_i_22__29_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.058     7.142 r  fft_512/genblk6[95].w_re_rom/i___196_i_19__29/O
+                         net (fo=3, unplaced)         0.217     7.359    fft_512/genblk6[95].w_re_rom/genblk6[95].dft_2/im_re/u_wallace_tree_adder/s_01[14]
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     7.417 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378/O
+                         net (fo=1, unplaced)         0.211     7.628    fft_512/genblk6[95].w_re_rom/product_carry__0_i_39__378_n_0
+                                                                      r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.058     7.686 r  fft_512/genblk6[95].w_re_rom/product_carry__0_i_15__378/O
+                         net (fo=2, unplaced)         0.211     7.897    fft_512/genblk6[95].dft_2/product_carry__2_11[5]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.058     7.955 r  fft_512/genblk6[95].dft_2/product_carry__0_i_1__2/O
+                         net (fo=2, unplaced)         0.211     8.166    fft_512/genblk6[95].dft_2/u_wallace_tree_adder/s_30_8[15]
+                                                                      r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.058     8.224 r  fft_512/genblk6[95].dft_2/product_carry__0_i_8__2/O
+                         net (fo=1, unplaced)         0.023     8.247    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/i___45_i_15__28[7]
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/S[7]
+                         CARRY8 (Prop_CARRY8_S[7]_CO[7])
+                                                      0.180     8.427 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0/CO[7]
+                         net (fo=1, unplaced)         0.006     8.433    fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__0_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/CI
+                         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.106     8.539 r  fft_512/genblk6[95].dft_2/im_re/u_wallace_tree_adder/product_carry__1/O[1]
+                         net (fo=1, unplaced)         0.209     8.748    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/pro_im_re[17]
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.058     8.806 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8/O
+                         net (fo=1, unplaced)         0.021     8.827    fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_11__8_n_0
+                                                                      r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/S[1]
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.279     9.106 r  fft_512/genblk6[95].dft_2/re_im/u_wallace_tree_adder/i___47_i_2__30/O[4]
+                         net (fo=2, unplaced)         0.209     9.315    genblk6[95].dft_2/p_0_in[6]
+                                                                      r  x_im_sort_reg[1527]_i_15/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.057     9.372 r  x_im_sort_reg[1527]_i_15/O
+                         net (fo=1, unplaced)         0.020     9.392    x_im_sort_reg[1527]_i_15_n_0
+                                                                      r  x_im_sort_reg_reg[1527]_i_5/S[6]
+                         CARRY8 (Prop_CARRY8_S[6]_CO[7])
+                                                      0.179     9.571 r  x_im_sort_reg_reg[1527]_i_5/CO[7]
+                         net (fo=1, unplaced)         0.006     9.577    x_im_sort_reg_reg[1527]_i_5_n_0
+                                                                      r  x_im_sort_reg_reg[1535]_i_6/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.078     9.655 r  x_im_sort_reg_reg[1535]_i_6/O[0]
+                         net (fo=7, unplaced)         0.236     9.891    x_im_sort_o[190]_191[8]
+                                                                      r  x_im_sort_reg[2808]_i_4/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.058     9.949 r  x_im_sort_reg[2808]_i_4/O
+                         net (fo=1, unplaced)         0.211    10.160    x_im_sort_reg[2808]_i_4_n_0
+                                                                      r  x_im_sort_reg[2808]_i_3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.058    10.218 r  x_im_sort_reg[2808]_i_3/O
+                         net (fo=1, unplaced)         0.211    10.429    x_im_sort_reg[2808]_i_3_n_0
+                                                                      r  x_im_sort_reg[2808]_i_2/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.058    10.487 r  x_im_sort_reg[2808]_i_2/O
+                         net (fo=2, unplaced)         0.211    10.698    x_im_unpack[175][8]
+                                                                      r  x_im_sort_reg[2808]_i_1/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.058    10.756 r  x_im_sort_reg[2808]_i_1/O
+                         net (fo=1, unplaced)         0.067    10.823    x_im_sort_reg[2808]
+                         FDRE                                         r  x_im_sort_reg_reg[2808]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.518     5.518 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.518    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.518 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.206     5.724    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.039     5.763 r  clk_IBUF_BUFG_inst/O
+                         net (fo=32912, unplaced)     2.439     8.202    clk_IBUF_BUFG
+                         FDRE                                         r  x_im_sort_reg_reg[2808]/C
+                         clock pessimism              0.562     8.765    
+                         clock uncertainty           -0.035     8.729    
+                         FDRE (Setup_FDRE_C_D)        0.044     8.773    x_im_sort_reg_reg[2808]
+  -------------------------------------------------------------------
+                         required time                          8.773    
+                         arrival time                         -10.823    
+  -------------------------------------------------------------------
+                         slack                                 -2.049    
+
+
+
+

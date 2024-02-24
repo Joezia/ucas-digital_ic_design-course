@@ -19,7 +19,7 @@ end
     wire [15:0] y_re;
     wire [15:0] y_im;
 
-    parameter N			= 512;
+    parameter N			= 256;
 	parameter INV		= 0;
 
     parameter period	= 2;
@@ -44,7 +44,6 @@ end
 
     integer fdyre,fdyim;
     integer cnt;
-    //读入数据
     initial begin
         clk			= 0;
         rst_n		= 0;
@@ -59,8 +58,8 @@ end
 			32'd256: np = 2'b10;
 			32'd512: np = 2'b11;
         endcase
-        $readmemh("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/x_re64.txt",mem_re);
-        $readmemh("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/x_im64.txt",mem_im);
+        $readmemh("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/x_re.txt",mem_re);
+        $readmemh("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/x_im.txt",mem_im);
         #(period);
         #(period);
 
@@ -79,8 +78,8 @@ end
 		cnt			= 0;
         valid_in	= 0;
 
-        fdyre = $fopen("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/y_re_fft64.txt","wb");
-        fdyim = $fopen("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/y_im_fft64.txt","wb");
+        fdyre = $fopen("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/256_y_re_fft.txt","wb");
+        fdyim = $fopen("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/256_y_im_fft.txt","wb");
         while(cnt<N)begin
             if(valid_out == 1)begin
                 $fwrite(fdyre,"%04x\n",y_re);
@@ -95,17 +94,17 @@ end
 		#(period);
 // ********************************
 //
-		$readmemh("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/y_re_fft64.txt",mem_re);
-        $readmemh("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/y_im_fft64.txt",mem_im);
+		$readmemh("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/256_y_re_fft.txt",mem_re);
+        $readmemh("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/256_y_im_fft.txt",mem_im);
         #(period);
         #(period);
 
-        rst_n = 1;
-		cnt = 0;
+        rst_n	= 1;
+		cnt		= 0;
         #(period);
 
-		inv		= ~INV;
-        valid_in = 1;
+		inv			= ~INV;
+        valid_in	= 1;
         while(cnt < N)begin
 			sop_in	= cnt ? 0 : 1;
             x_re	= mem_re[cnt];
@@ -117,8 +116,8 @@ end
 		cnt			= 0;
         valid_in	= 0;
 
-        fdyre = $fopen("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/y_re_ifft64.txt","wb");
-        fdyim = $fopen("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/y_im_ifft64.txt","wb");
+        fdyre = $fopen("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/256_y_re_ifft.txt","wb");
+        fdyim = $fopen("/home/zza/Documents/ucas-digital_ic_design-course/fft_multimode/sim/256_y_im_ifft.txt","wb");
         while(cnt<N)begin
             if(valid_out == 1)begin
                 $fwrite(fdyre,"%04x\n",y_re);
@@ -131,7 +130,6 @@ end
 		$fclose(fdyim);
 
 		#(period*3);
-
 
 		$finish;
 		$stop;
